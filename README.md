@@ -17,7 +17,7 @@ example-express-swagger/
 │   └── db.config.js         # connect mongodb
 ├── middlewares/  
 │   └── rateLimit.middleware.js    # do checking ip address
-├── model/  
+├── models/  
 │   └── ip.model.js          # Mongodb ip address scheme
 ├── plugins/  
 │   ├── nova-ai.js           # examples of data
