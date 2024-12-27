@@ -26,31 +26,31 @@ example-express-swagger/
 ```
 # installation
 
-1. clone the repo:
+1. Clone the repo:
 ```
 git clone https://github.com/Paxsenix0/example-express-swagger.git  
 cd example-express-swagger
 ```
 
-2. install dependencies:
+2. Install dependencies:
 ```
 npm install
 ```
 
-3. start the server:
+3. Start the server:
 ```
 npm start
 ```
 
-4. open swagger UI:
-go to http://localhost:3000/api-docs in your browser to view your API documentation.
+4. Open Swagger UI:
+go to http://localhost:3000/docs in your browser to view your API documentation.
 
 
 
-# swagger configuration
+# Swagger Configuration
 
-swagger options are defined in swagger.js. here's an overview of the configuration:
-```
+Swagger Options are defined in index.js. Here's an overview of the configuration:
+```javascript
 const swaggerOptions = {  
   definition: {  
     openapi: '3.0.0',  
@@ -82,14 +82,14 @@ const swaggerOptions = {
 };
 ```
 
-# license
+# License
 
-this project is licensed under the MIT license. see [LICENSE](https://github.com/Paxsenix0/example-express-swagger/blob/initial/LICENSE) for details.
+This project is licensed under the MIT license. see [LICENSE](https://github.com/Paxsenix0/example-express-swagger/blob/initial/LICENSE) for details.
 
-# contact
+# Contact
 
-name: paxsenix0
+Telegram: [@paxsenix0](https://t.me/paxsenix0)
 
-email: alex24dzn@proton.me
+Email: alex24dzn@proton.me
 
-website: paxsenix.biz.id
+My Rest-API website: https://api.paxsenix.biz.id
