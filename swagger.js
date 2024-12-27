@@ -533,7 +533,7 @@ var stringify = function (obj, prop) {
   return 'var options = ' + json + ';'
 }
 
-modules.exports = {
+module.exports = {
   setup,
   serve,
   serveWithOptions,
