@@ -498,7 +498,7 @@ var swaggerInitFunction = function (swaggerDoc, opts) {
 var swaggerAssetMiddleware = options => {
   var opts = options || {}
   opts.index = false
-  return express.static(getAbsoluteSwaggerFsPath(), opts)
+  return express.static(getAbsoluteSwaggerFsPath, opts)
 }
 
 var serveFiles = function (swaggerDoc, opts) {
