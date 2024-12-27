@@ -77,7 +77,7 @@ const chatRoutes = express.Router();
 chatRoutes.post('/v1/chat/completions', async (req, res) => {
   const body = req.body;
 
-  if (!body || !Array.isArray(body) || body.messages.length === 0) {
+  if (!body) {
     return res.status(400).json({ message: 'invalid request body', ok: false });
   }
 
