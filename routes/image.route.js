@@ -35,8 +35,6 @@ const imageRoutes = express.Router();
  *     responses:
  *       200:
  *         description: Success - Got the response
- *         content:
- *           image/png:
  *       400:
  *         description: Invalid input
  *       500:
