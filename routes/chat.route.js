@@ -77,7 +77,7 @@ const chatRoutes = express.Router();
 chatRoutes.post('/v1/chat/completions', async (req, res) => {
   const body = req.body;
 
-  if (!body || !Array.isArray(body) || body.length === 0) {
+  if (!body || !Array.isArray(body) || body.messages.length === 0) {
     return res.status(400).json({ message: 'invalid request body', ok: false });
   }
 
@@ -93,7 +93,7 @@ chatRoutes.post('/v1/chat/completions', async (req, res) => {
   }
 
   try {
-    const response = await handleMessage(body);
+    const response = await handleMessage(body.messages);
     if (!response) {
       return res.status(500).json({ message: 'failed to get a response from the AI', ok: false });
     }
