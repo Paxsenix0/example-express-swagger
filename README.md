@@ -1,30 +1,37 @@
 # example-express-swagger
 A Bboilerplate for creating express.js APIs with Swagger documentation setup. this project makes it easy to document and test your API endpoints while providing a clean project structure and customization options.
 
-# features
+# Features
 
-- express.js: lightweight and flexible framework for building web APIs.
+- **express.js**: lightweight and flexible framework for building web APIs.
 
-- swagger-ui: auto-generated and interactive API documentation.
+- **swagger-ui**: auto-generated and interactive API documentation.
 
-- organized structure: routes and configuration neatly organized for scalability.
+- **organized structure**: routes and configuration neatly organized for scalability.
 
 
-project structure
+# Project structure
 ```
-example-express-swagger/  
+example-express-swagger/
+├── config/  
+│   └── db.config.js         # connect mongodb
+├── middlewares/  
+│   └── rateLimit.middleware.js    # do checking ip address
+├── model/  
+│   └── ip.model.js          # Mongodb ip address scheme
+├── plugins/  
+│   ├── nova-ai.js           # examples of data
+│   └── index.js             # main entry point to handles data
 ├── routes/  
-│   ├── chat.route.js        # handles 'chat' related API endpoints  
-│   └── index.js             # main entry point for all routes  
-├── public/  
-│   ├── favicon-32x32.png    # 32x32 favicon for swagger-ui  
-│   └── favicon-16x16.png    # 16x16 favicon for swagger-ui  
-├── app.js                   # main app initialization  
-├── swagger.js               # swagger configuration file  
+│   └── chat.route.js        # handles 'chat' related API endpoints
+├── services/  
+│   └── ip.service.js        # all functions to insert, check usage of ip address for rate limit.
+├── index.js                 # main app initialization  
+├── swagger.js               # swagger ui file  
 ├── package.json             # npm dependencies and scripts  
 └── README.md                # project documentation (you’re here)
 ```
-# installation
+# Installation
 
 1. Clone the repo:
 ```
