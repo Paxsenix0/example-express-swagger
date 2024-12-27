@@ -26,10 +26,13 @@ app.use(async (req, res, next) => {
 /* Set up Rate Limiter */
 app.use(rateLimiter);
 
+/* You can set up home page or something like that. */
+app.get((req, res) => res.status(200).json({ message: 'Hello World!', ok: false }));
+
 /* `/v1/chat/completions` routes */
 app.use(chatRoutes);
 
-/* Setup Swagger UI */
+/* Setup Swagger UI on `/docs` routes */
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
