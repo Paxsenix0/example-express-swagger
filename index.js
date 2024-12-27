@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
 const chatRoutes = require('./routes/chat.route.js');
+const imageRoutes = require('./routes/image.route.js');
 const { setup, serve } = require('./swagger.js');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -32,6 +33,9 @@ app.get((req, res) => res.status(200).json({ message: 'Hello World!', ok: false 
 
 /* `/v1/chat/completions` routes */
 app.use(chatRoutes);
+
+/* `/v1/image/completions` routes */
+app.use(imageRoutes);
 
 /* Setup Swagger UI on `/docs` routes */
 const swaggerOptions = {
