@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const model = 'nova-ai';
+
 function getStaticDate() {
   const date = new Date();
   const day = String(date.getDate()).padStart(2, '0');
@@ -9,7 +11,7 @@ function getStaticDate() {
   return `${day}-${month}-${year}`;
 }
 
-async function gatauNemuJuga(body) {
+async function handleMessage(body) {
   try {
     const date = getStaticDate();
     const prompt = body[body.length - 1].content;
@@ -52,6 +54,6 @@ async function gatauNemuJuga(body) {
 }
 
 module.exports = {
-  model: 'nova-ai',
-  data: gatauNemuJuga
+  model,
+  handleMessage
 };
