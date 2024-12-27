@@ -62,7 +62,8 @@ const swaggerOptions = {
       }
     ],
     tags: [
-      { name: "AI" }
+      { name: "AI" },
+      { name: "AI-IMAGE" }
     ]
   },
   apis: ["./routes/*.js", "./routes/*.route.js"]
