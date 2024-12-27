@@ -63,6 +63,11 @@ npm start
 go to http://localhost:3000/docs in your browser to view your API documentation.
 
 
+# Vercel Deployment
+To deploy this project to vercel:
+## 1-Click-Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPaxsenix0%2Fexample-express-swagger&env=DB_URI&envDescription=DB_URI%20is%20needed%20for%20this%20for%20mongodb%20to%20be%20working%20fine&envLink=https%3A%2F%2Fwww.mongodb.com%2F&project-name=example-express-swagger&repository-name=example-express-swagger&redirect-url=https%3A%2F%2Fgithub.com%2FPaxsenix0%2Fexample-express-swagger)
+
 
 # Swagger Configuration
 
