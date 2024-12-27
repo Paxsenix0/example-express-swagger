@@ -8,7 +8,7 @@ async function addNewIp(ip) {
   try {
      const ipAddress = await IP.findOne({ ip });
      let resultIpAddress;
-     if (!subscription) {
+     if (!ipAddress) {
         resultIpAddress = await IP.create({
           ip: ip,
           usage: 0,
