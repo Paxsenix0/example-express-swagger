@@ -1,5 +1,5 @@
 # example-express-swagger
-A Bboilerplate for creating express.js APIs with Swagger documentation setup. this project makes it easy to document and test your API endpoints while providing a clean project structure and customization options.
+A Boilerplate for creating express.js APIs with Swagger documentation setup. this project makes it easy to document and test your API endpoints while providing a clean project structure and customization options.
 
 # Features
 
