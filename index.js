@@ -3,7 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
-const docsRoutes = require('./routes/docs.route');
+const docsRoutes = require('./routes/docs.route.js');
+const chatRoutes = require('./routes/chat.route.js');
 
 dotenv.config();
 const app = express();
@@ -25,10 +26,7 @@ app.use(async (req, res, next) => {
 app.use(rateLimiter);
 
 app.use(docsRoutes);
-
-app.get('/api/test', (req, res) => {
-    res.status(200).json({ message: 'Tested!', ok: true });
-});
+app.use(chatRoutes);
 
 app.all("*", (req, res) => res.status(404).json({ message: "Invalid endpoint/method, are you lost? :(", ok: false }));
 
