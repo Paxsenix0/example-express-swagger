@@ -26,7 +26,7 @@ function generateSignature() {
   return { signature: `Signature ${signature}`, timestamp: String(epochSecond) };
 }
 
-async function handleImages(prompt) {
+async function handleImage(prompt) {
   try {
     const { signature, timestamp } = generateSignature();
     const { data } = await axios.post('https://api.startnest.uk/api/image-generator', {
@@ -53,5 +53,5 @@ async function handleImages(prompt) {
 
 module.exports = {
   model,
-  handleImages
+  handleImage
 };
