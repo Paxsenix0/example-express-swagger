@@ -3,8 +3,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
-const docsRoutes = require('./routes/docs.route.js');
 const chatRoutes = require('./routes/chat.route.js');
+const { setup, serve } = require('./swagger.js');
+const swaggerJsDoc = require('swagger-jsdoc');
 
 dotenv.config();
 const app = express();
@@ -25,8 +26,61 @@ app.use(async (req, res, next) => {
 /* Set up Rate Limiter */
 app.use(rateLimiter);
 
-app.use(docsRoutes);
+/* `/v1/chat/completions` routes */
 app.use(chatRoutes);
+
+/* Setup Swagger UI */
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Example-Rest-API',
+      version: '1.0.0',
+      description: "your description!",
+      contact: {
+        name: "PaxSenix0",
+        url: "https://api.paxsenix.biz.id",
+        email: "alex24dzn@proton.me"
+      },
+      license: {
+        name: "MIT LICENSE",
+        url: "https://github.com/Paxsenix0/example-express-swagger/blob/initial/LICENSE"
+      }
+    },
+    servers: [
+      { 
+        url: 'https://example-express-swagger.vercel.app', 
+        description: 'BASE URL API' 
+      }
+    ],
+    tags: [
+      { name: "AI" }
+    ]
+  },
+  apis: ['./routes/*.js']
+};
+
+const specs = swaggerJsDoc(swaggerOptions);
+
+app.use(
+  '/docs',
+  serve,
+  setup(specs, {
+    customCss: `
+      .swagger-ui .topbar { display: none; }
+      .swagger-ui .opblock .opblock-summary-path {
+        display: inline-block;
+        word-break: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+    `,
+    customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css",
+    customSiteTitle: 'Example Rest API'
+  })
+);
 
 app.all("*", (req, res) => res.status(404).json({ message: "Invalid endpoint/method, are you lost? :(", ok: false }));
 
