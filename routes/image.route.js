@@ -28,7 +28,7 @@ const imageRoutes = express.Router();
  *                 description: The model of the image AI, leave it empty to see available models
  *               prompt:
  *                 type: string
- *.                description: The prompt.
+ *                 description: The prompt.
  *           example:
  *             model: "sdxl"
  *             prompt: "a cat"
