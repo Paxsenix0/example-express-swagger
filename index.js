@@ -60,7 +60,7 @@ const swaggerOptions = {
       { name: "AI" }
     ]
   },
-  apis: ['./routes/*.js']
+  apis: ["./routes/*.js", "./routes/*.route.js"]
 };
 
 const specs = swaggerJsDoc(swaggerOptions);
@@ -85,7 +85,7 @@ app.use(
   })
 );
 
-app.all("*", (req, res) => res.status(404).json({ message: "Invalid endpoint/method, are you lost? :(", ok: false }));
+app.get("*", (req, res) => res.status(404).json({ message: "Invalid endpoint/method, are you lost? :(", ok: false }));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
