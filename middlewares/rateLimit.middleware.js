@@ -1,4 +1,4 @@
-const ipAddressService = require('../services/ip.service');
+const ipAddressService = require('../services/ip.service.js');
 
 const rateLimiter = async (req, res) => {
     const ip = req.ip; // or however u get the client ip
