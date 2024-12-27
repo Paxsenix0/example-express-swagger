@@ -53,8 +53,8 @@ const swaggerOptions = {
     },
     servers: [
       { 
-        url: 'https://example-express-swagger.vercel.app', 
-        description: 'BASE URL API' 
+        url: 'https://paxsenix0-rest-api.vercel.app', 
+        description: 'url' 
       }
     ],
     tags: [
