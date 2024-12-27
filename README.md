@@ -1,2 +1,95 @@
 # example-express-swagger
-An easy example how to make Rest API with Documentation Swagger UI.
+A Bboilerplate for creating express.js APIs with Swagger documentation setup. this project makes it easy to document and test your API endpoints while providing a clean project structure and customization options.
+
+# features
+
+- express.js: lightweight and flexible framework for building web APIs.
+
+- swagger-ui: auto-generated and interactive API documentation.
+
+- organized structure: routes and configuration neatly organized for scalability.
+
+
+project structure
+```
+example-express-swagger/  
+├── routes/  
+│   ├── chat.route.js        # handles 'chat' related API endpoints  
+│   └── index.js             # main entry point for all routes  
+├── public/  
+│   ├── favicon-32x32.png    # 32x32 favicon for swagger-ui  
+│   └── favicon-16x16.png    # 16x16 favicon for swagger-ui  
+├── app.js                   # main app initialization  
+├── swagger.js               # swagger configuration file  
+├── package.json             # npm dependencies and scripts  
+└── README.md                # project documentation (you’re here)
+```
+# installation
+
+1. clone the repo:
+```
+git clone https://github.com/Paxsenix0/example-express-swagger.git  
+cd example-express-swagger
+```
+
+2. install dependencies:
+```
+npm install
+```
+
+3. start the server:
+```
+npm start
+```
+
+4. open swagger UI:
+go to http://localhost:3000/api-docs in your browser to view your API documentation.
+
+
+
+# swagger configuration
+
+swagger options are defined in swagger.js. here's an overview of the configuration:
+```
+const swaggerOptions = {  
+  definition: {  
+    openapi: '3.0.0',  
+    info: {  
+      title: 'example-rest-api',  
+      version: '1.0.0',  
+      description: 'your description!',  
+      contact: {  
+        name: 'PaxSenix0',  
+        url: 'https://api.paxsenix.biz.id',  
+        email: 'alex24dzn@proton.me'  
+      },  
+      license: {  
+        name: 'MIT LICENSE',  
+        url: 'https://github.com/Paxsenix0/example-express-swagger/blob/initial/LICENSE'  
+      }  
+    },  
+    servers: [  
+      {  
+        url: 'https://example-express-swagger.vercel.app',  
+        description: 'BASE URL API'  
+      }  
+    ],  
+    tags: [  
+      { name: 'AI' }  
+    ]  
+  },  
+  apis: ['./routes/*.route.js'] // adjust based on route file naming  
+};
+```
+
+# license
+
+this project is licensed under the MIT license. see [LICENSE](https://github.com/Paxsenix0/example-express-swagger/blob/initial/LICENSE) for details.
+
+# contact
+
+name: paxsenix0
+
+email: alex24dzn@proton.me
+
+website: paxsenix.biz.id
