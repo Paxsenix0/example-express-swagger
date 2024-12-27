@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
 const chatRoutes = require('./routes/chat.route.js');
-//const { setup, serve } = require('./swagger.js');
+const { setup, serve } = require('./swagger.js');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 
@@ -68,8 +68,8 @@ const specs = swaggerJsDoc(swaggerOptions);
 
 app.use(
   '/docs',
-  swaggerUi.serve,
-  swaggerUi.setup(specs, {
+  serve,
+  setup(specs, {
     customCss: `
       .swagger-ui .topbar { display: none; }
       .swagger-ui .opblock .opblock-summary-path {
