@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
-const connectDB = require('./src/config/db.config.js');
+const connectDB = require('./config/db.config.js');
 /* Connect to database */
 connectDB();
 
