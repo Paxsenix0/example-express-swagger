@@ -3,8 +3,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
-/* Connect to database */
-connectDB();
 
 dotenv.config();
 
@@ -17,6 +15,12 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
+app.use(async (req, res, next) => {
+    /* Connect to Database */
+    await connectDB();
+    next();
+});
+
 /* Set up Rate Limiter */
 app.use(rateLimiter);
 
