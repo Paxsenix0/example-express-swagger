@@ -3,9 +3,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const rateLimiter = require('./middlewares/rateLimit.middleware.js');
 const connectDB = require('./config/db.config.js');
+const docsRoutes = require('./routes/docs.route');
 
 dotenv.config();
-
 const app = express();
 app.set('trust proxy', true);
 
@@ -24,13 +24,13 @@ app.use(async (req, res, next) => {
 /* Set up Rate Limiter */
 app.use(rateLimiter);
 
-app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Hello World!', ok: false });
-})
+app.use(docsRoutes);
 
 app.get('/api/test', (req, res) => {
     res.status(200).json({ message: 'Tested!', ok: true });
 });
+
+app.all("*", (req, res) => res.status(404).json({ message: "Invalid endpoint/method, are you lost? :(", ok: false }));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
