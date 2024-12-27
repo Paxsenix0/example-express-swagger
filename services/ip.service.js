@@ -1,4 +1,4 @@
-const IP = require('../models/ip.model');
+const IP = require('../models/ip.model.js');
 
 const USAGE_LIMIT = 15;
 const TIME_LIMIT = 60 * 1000;
