@@ -9,7 +9,7 @@ const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger
 const specs = swaggerJsDoc(swaggerOptions);
 
 docsRoutes.use(
-  '/',
+  '/docs',
   serve,
   setup(specs, {
     customCss: `
