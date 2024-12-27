@@ -7,6 +7,10 @@ A Bboilerplate for creating express.js APIs with Swagger documentation setup. th
 
 - **swagger-ui**: auto-generated and interactive API documentation.
 
+- **mongodb support**: easily integrate with a mongodb database using DB_URI.
+
+- **vercel deployment**: one-click deployment to vercel for instant hosting.
+
 - **organized structure**: routes and configuration neatly organized for scalability.
 
 
@@ -34,22 +38,28 @@ example-express-swagger/
 # Installation
 
 1. Clone the repo:
-```
+```bash
 git clone https://github.com/Paxsenix0/example-express-swagger.git  
 cd example-express-swagger
 ```
 
 2. Install dependencies:
-```
+```bash
 npm install
 ```
 
-3. Start the server:
+3. Configure Environment variables:
+create a .env file in the root directory and add your mongodb uri:
+```bash
+DB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>?retryWrites=true&w=majority
 ```
+
+4. Start the server:
+```bash
 npm start
 ```
 
-4. Open Swagger UI:
+5. Open Swagger UI:
 go to http://localhost:3000/docs in your browser to view your API documentation.
 
 
