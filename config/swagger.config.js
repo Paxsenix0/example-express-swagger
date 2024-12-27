@@ -1,5 +1,3 @@
-const path = require('path');
-
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -27,7 +25,7 @@ const options = {
       { name: "AI" }
     ]
   },
-  apis: [path.join(__dirname, '../routes/*.js')]
+  apis: ['../routes/*.js']
 };
 
 module.exports = options;
