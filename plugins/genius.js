@@ -71,6 +71,7 @@ async function flux(prompt) {
 async function handleImage(prompt) {
   try {
     const data = await flux(prompt);
+    console.log(data);
 
     const arrayBuf = await axios.get(data[0].url, { responseType: 'arraybuffer' });
     return Buffer.from(arrayBuf);
