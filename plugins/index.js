@@ -1,8 +1,9 @@
 const novaAI = require('./nova-ai.js');
 const sdxl = require('./startnest.js');
+const flux = require('./genius.js');
 
 const chatModels = [novaAI];
-const imageModels = [sdxl];
+const imageModels = [sdxl, flux];
 
 function getChatModelHandler(modelName) {
   return chatModels.find((m) => m.model === modelName)?.handleMessage || null;
