@@ -34,7 +34,7 @@ const convertOpenAiToGemini = (openAiRequest) => {
           }
       ]
   };
-  if (systemMessages) {
+  if (systemMessages.length > 0) {
       geminiRequest = {
           ...geminiRequest,
           system_instruction: {
