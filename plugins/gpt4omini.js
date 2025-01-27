@@ -7,7 +7,7 @@ async function handleMessage(body) {
   try {
     const requestJson = {
       model,
-      messages: body.messages
+      messages: body
     };
 
     const { data } = await axios.post(
