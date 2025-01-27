@@ -15,6 +15,7 @@
     "express": "^4.19.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "ws": "latest",
     "mongoose": "latest",
     "swagger-ui-express": "4.3.0",
     "swagger-ui-dist": "4.3.0",

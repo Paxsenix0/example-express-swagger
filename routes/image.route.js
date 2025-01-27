@@ -1,5 +1,5 @@
 const express = require('express');
-const { getImageModelHandler, getAvailableImageModels } = require('../plugins/index.js');;
+const { getImageModelHandler, getAvailableImageModels } = require('../plugins/index.js');
 
 const imageRoutes = express.Router();
 
