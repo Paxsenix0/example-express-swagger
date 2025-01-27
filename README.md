@@ -25,6 +25,7 @@ example-express-swagger/
 │   └── ip.model.js          # Mongodb ip address scheme
 ├── plugins/  
 │   ├── nova-ai.js           # examples of data
+│   ├── startnest.js           # examples of data
 │   └── index.js             # main entry point to handles data
 ├── routes/  
 │   └── chat.route.js        # handles 'chat' related API endpoints
