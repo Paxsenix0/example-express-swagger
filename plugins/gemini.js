@@ -4,10 +4,10 @@ const model = 'gemini-1.5-flash-8b';
 const apiKey = 'AIzaSyAMyo2xOeO05IcB87sonXcAkLVoVmlGbWE';
 
 const convertOpenAiToGemini = (openAiRequest) => {
-  const systemMessages = openAiRequest.messages.filter(message => message.role === "system");
-  const otherMessages = openAiRequest.messages.filter(message => message.role !== "system");
+  const systemMessages = openAiRequest.filter(message => message.role === "system");
+  const otherMessages = openAiRequest.filter(message => message.role !== "system");
   let geminiRequest = {
-      contents: otherMessages.messages.map((message) => ({
+      contents: otherMessages.map((message) => ({
           role: message.role === "assistant" ? "model" : message.role,
           parts: [
               {
