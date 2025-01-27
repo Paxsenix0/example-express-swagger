@@ -6,7 +6,7 @@ const apiKey = 'AIzaSyAMyo2xOeO05IcB87sonXcAkLVoVmlGbWE';
 const convertOpenAiToGemini = (openAiRequest) => {
   const systemMessages = openAiRequest.messages.filter(message => message.role === "system");
   const otherMessages = openAiRequest.messages.filter(message => message.role !== "system");
-  const geminiRequest = {
+  let geminiRequest = {
       contents: otherMessages.messages.map((message) => ({
           role: message.role === "assistant" ? "model" : message.role,
           parts: [
@@ -14,10 +14,35 @@ const convertOpenAiToGemini = (openAiRequest) => {
                   text: message.content
               }
           ]
-      }))
+      })),
+      safetySettings: [
+          {
+              category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              threshold: "BLOCK_NONE"
+          },
+          {
+              category: "HARM_CATEGORY_HATE_SPEECH",
+              threshold: "BLOCK_NONE"
+          },
+          {
+              category: "HARM_CATEGORY_HARASSMENT",
+              threshold: "BLOCK_NONE"
+          },
+          {
+              category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+              threshold: "BLOCK_NONE"
+          }
+      ]
   };
   if (systemMessages) {
-      
+      geminiRequest = {
+          ...geminiRequest,
+          system_instruction: {
+             parts: {
+                text: systemMessages[0].content
+             }
+          }
+      };
   }
   return geminiRequest;
 };
@@ -25,7 +50,7 @@ const convertOpenAiToGemini = (openAiRequest) => {
 async function handleMessage(body) {
   try {
     const requestJsonOpenAI = {
-      messages: body
+        messages: body
     };
 
     const requestJson = convertOpenAiToGemini(requestJsonOpenAI);
