@@ -49,11 +49,7 @@ const convertOpenAiToGemini = (openAiRequest) => {
 
 async function handleMessage(body) {
   try {
-    const requestJsonOpenAI = {
-        messages: body
-    };
-
-    const requestJson = convertOpenAiToGemini(requestJsonOpenAI);
+    const requestJson = convertOpenAiToGemini(body);
 
     const { data } = await axios.post(
       `https://generativelanguage.googleapis.com/v1alpha/models/${model}:generateContent?key=${apiKey}`,
