@@ -1,10 +1,11 @@
 const novaAI = require('./nova-ai.js');
 const gpt4omini = require('./gpt4omini.js');
+const gpt3 = require('./gpt3.js');
 const gemini = require('./gemini.js');
 const sdxl = require('./startnest.js');
 const flux = require('./genius.js');
 
-const chatModels = [novaAI, gpt4omini, gemini];
+const chatModels = [novaAI, gpt4omini, gemini, gpt3];
 const imageModels = [sdxl, flux];
 
 function getChatModelHandler(modelName) {
