@@ -86,7 +86,7 @@ app.use(
         max-width: 100%;
       }
     `,
-    customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css",
+    customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.min.css",
     customSiteTitle: 'Example Rest API'
   })
 );
